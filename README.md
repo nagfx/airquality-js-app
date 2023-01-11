@@ -1,5 +1,6 @@
 # airquality-js-app
 Built an HTML/CSS/JS/Bootstrap based website, I used the Transport for London's(TFL) API provided.
+The website is deployed and accessible here https://nagfx.github.io/airquality-js-app/
 
 I was stuck for 2-3 hours trying to figure out where to get the keys, they have not made it easy and after Googling I found how to gain access, afterwards could not find the App ID that gave me another long headache, I tried to search where to get that just to find out it is not needed anymore and the developers do not have the capacity to update that information on main website. Afterwards I still couldn't access the API until I found a way to access without any access key by going 
 https://api.tfl.gov.uk/AirQuality/
