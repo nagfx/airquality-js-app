@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap's -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
+    crossorigin="anonymous">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>London Air quality - Website by Naman</title>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+      <div class="container">
+        <a href="#" class="navbar-brand">London Air Quality</a>
+      <!-- Adding collapsable navbar button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        > 
+        <!-- Using bootstrap icon -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="#forecast" class="nav-link">See Air Quality</a>
+            </li>
+            <li class="nav-item">
+              <a href="#questions" class="nav-link">Frequently Asked Questions</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero section where header and an image of cloud is -->
+    <section
+      class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
+    >
+      <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+          <div>
+            <h1>Get air quality of <span class="text-warning"> London </span></h1>
+            <p class="lead my-4">
+              By using Transport For London's API, we are able to deliver current forecast which is updated hourly.
+            </p>
+            <a href="#forecast"><button
+              class="btn btn-light btn-lg"
+            >
+              See Current Air Quality Forecast and tomorrow's
+            </button></a>
+          </div>
+          <!-- Vector art taken from https://www.svgrepo.com/svg/223569/cloudy-cloud free for commercial use-->
+          <img
+            class="img-fluid w-50 d-none d-sm-block"
+            src="images/cloudy-cloud-svgrepo-com.svg"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Forecast Section -->
+    <section id="forecast" class="p-5">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md">
+           <!-- Vector art taken from https://www.svgrepo.com/svg/286153/pollution-co2 free for commercial use-->
+            <img src="images/pollution-co2-svgrepo-com.svg" class="img-fluid" alt="" />
+          </div>
+          <div class="col-md p-5">
+            <!-- placeholders for the text which will be filled from API -->
+            <h2>Air Quality forecast</h2>
+            <p id="disclaimer-text"></p>
+            <h2 class="currentForecastHeader"></h2>
+            <p class="forecastInfo">
+            <h2 class="tomorrowForecastHeader"></h2>
+            <p class="tomorrowForecastInfo">
+
+            </p>
+            <!-- running the getAirQuality function which will run the function specified in app.js to display
+            the forecast -->
+            <button onclick="getAirQuality()" class="btn btn-dark mt-3">
+              Display forecast
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Question Accordion -->
+    <!-- Thought to add an accordion for cool way to display Frequently Asked Questions and their answers -->
+    <section id="questions" class="p-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+        <div class="accordion accordion-flush" id="questions">
+          <!-- Item 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#question-one"
+              >
+                Which place's forecast is displayed?
+              </button>
+            </h2>
+            <div
+              id="question-one"
+              class="accordion-collapse collapse"
+              data-bs-parent="#questions"
+            >
+              <div class="accordion-body">
+                London, UK according to the API provided by https://api-portal.tfl.gov.uk/
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#question-two"
+              >
+                How does knowing the air quality benefit me?
+              </button>
+            </h2>
+            <div
+              id="question-two"
+              class="accordion-collapse collapse"
+              data-bs-parent="#questions"
+            >
+              <div class="accordion-body">
+                You can benefit by knowing what is the current and tomorrow's forecast for air quality and prepare accordingly your plan to spend the day out. 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section class="p-5">
+      <div class="container">
+          <div class="col-md">
+            <h2 class="text-center mb-4">Contact Info</h2>
+            <ul class="list-group list-group-flush lead">
+              <li class="list-group-item">
+                <span class="fw-bold">Admin Email:</span>
+                <a href="mailto:namanshaheer@gmail.com">Click here to mail admin</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+      <div class="container">
+        <p class="lead">Copyright &copy; 2023 London Air Quality by Naman</p>
+        <!-- Simple button to send back up -->
+        <a href="#" class="position-absolute bottom-0 end-0 p-5">
+          <i class="bi bi-arrow-up-circle h1"></i>
+        </a>
+      </div>
+    </footer>
+
+<!-- Bootstrap's and my javascript file linking -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>

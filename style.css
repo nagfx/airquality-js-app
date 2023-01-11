@@ -1,0 +1,10 @@
+/* Adding the below css code so the navigation will not display over the content below we made it sticky so 
+adding the empty space for it to display over by default */
+body::before {
+  display: block;
+  content: '';
+  height: 60px;
+}
+
+
+
